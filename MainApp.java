@@ -1,11 +1,21 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.TreeMap;
+
 
 public class MainApp {
-    public static ArrayList<DVD> collection = new ArrayList<DVD>();
 
-    public static void main(String[] args) {
+        public static ArrayList<DVD> collection;
+
+    static {
+        try {
+            collection = new ArrayList<>(InputOutput.loadFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         System.out.println("____Menu____");
         Scanner input = new Scanner(System.in);
         System.out.println("What would you like to do: \n1. add to the collection \n2. remove from the collection\n3. display the collection\n4. search the collection \n5. edit the collection\n0. Exit");
@@ -31,7 +41,8 @@ public class MainApp {
                 case "0":
                     System.out.println("thanks for using the program");
                     valid = false;
-                    break;
+                    InputOutput.writeToFile(collection);
+                     break;
                 default:
                     System.out.println("you entered an invalid input exiting program");
                     valid = false;
