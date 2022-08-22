@@ -18,10 +18,11 @@ public class MainApp {
     public static void main(String[] args) throws IOException {
         System.out.println("____Menu____");
         Scanner input = new Scanner(System.in);
-        System.out.println("What would you like to do: \n1. add to the collection \n2. remove from the collection\n3. display the collection\n4. search the collection \n5. edit the collection\n0. Exit");
-        String Choice = input.nextLine();
+
         boolean valid = true;
         while (valid) {
+            System.out.println("What would you like to do: \n1. add to the collection \n2. remove from the collection\n3. display the collection\n4. search the collection \n5. edit the collection\n0. Exit");
+            String Choice = input.nextLine();
             switch (Choice) {
                 case "1":
                     adding();
@@ -78,8 +79,12 @@ public class MainApp {
 
     private static void Display() {
         System.out.println("\n____Display____\n");
-        for(DVD s : collection){
-            System.out.println(s);
+        if (collection.size() > 0) {
+            for (DVD s : collection) {
+                System.out.println(s);
+            }
+        }else {
+            System.out.println("collection is empty");
         }
     }
 

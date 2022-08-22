@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputOutput {
+    static File output = new File("output.txt");
 
 
 
@@ -10,8 +11,8 @@ public class InputOutput {
 
     public static ArrayList<DVD> loadFile() throws IOException{
         Scanner scanner;
-        new File("output.txt");
-        scanner = new Scanner(new BufferedReader(new FileReader("output.txt")));
+        output.createNewFile();
+        scanner = new Scanner(new BufferedReader(new FileReader(output)));
         String currentline;
         ArrayList<DVD> collection = new ArrayList<DVD>();
         DVD dvd;
@@ -26,7 +27,7 @@ public class InputOutput {
     private static DVD unmarshallDVD(String dvdAsText) {
         String[] dvdTokens = dvdAsText.split(delimiter);
         DVD Ndvd = new DVD();
-        Ndvd.addnewDvd( dvdTokens[0], dvdTokens[1], dvdTokens[2], dvdTokens[3], dvdTokens[4], dvdTokens[5]);
+        Ndvd.addnewDvdImported( dvdTokens[0], dvdTokens[1], dvdTokens[2], dvdTokens[3], dvdTokens[4], dvdTokens[5]);
         return Ndvd;
     }
     private static String marshallDVD(DVD aDVD) {
@@ -41,7 +42,7 @@ public class InputOutput {
     public static void writeToFile(ArrayList<DVD>collection) throws  IOException {
         PrintWriter out = null;
         try {
-            out = new PrintWriter(new FileWriter("output.txt"));
+            out = new PrintWriter(new FileWriter(output));
         } catch (IOException e) {
             System.out.println("Could not save student data.");
         }

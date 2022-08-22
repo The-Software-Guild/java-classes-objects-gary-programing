@@ -24,8 +24,13 @@ public class DVD {
             System.out.println("do you have a review for this movie? ");
             User_review = Input.nextLine();
         }
-        public void addnewDvd(String one, String two, String three, String four, String five, String six){
-
+        public void addnewDvdImported(String one, String two, String three, String four, String five, String six){
+            Title = one;
+            Date = two;
+            MPAA = three;
+            DirectorsName = four;
+            Studio = five;
+            User_review = six;
         }
     public String toString(){
         return "Title: "+Title + " Date: "+ Date + " MPAA: " + MPAA + " Directors Name: " + DirectorsName + "Studio: "+ "User_review: " + User_review+ "\n";
