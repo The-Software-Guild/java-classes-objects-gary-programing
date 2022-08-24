@@ -27,7 +27,7 @@ public class InputOutput {
     private static DVD unmarshallDVD(String dvdAsText) {
         String[] dvdTokens = dvdAsText.split(delimiter);
         DVD Ndvd = new DVD();
-        Ndvd.addnewDvdImported( dvdTokens[0], dvdTokens[1], dvdTokens[2], dvdTokens[3], dvdTokens[4], dvdTokens[5]);
+        Ndvd.addNewDVD( dvdTokens[0], dvdTokens[1], dvdTokens[2], dvdTokens[3], dvdTokens[4], dvdTokens[5]);
         return Ndvd;
     }
     private static String marshallDVD(DVD aDVD) {

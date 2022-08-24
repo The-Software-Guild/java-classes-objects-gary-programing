@@ -88,7 +88,7 @@ public class MainApp {
         }
     }
 
-    public static void removal () {
+    private static void removal () {
         System.out.println("\n_____Removal____\n");
         Scanner inp = new Scanner(System.in);
         System.out.println("please enter the title of the movie you want removed: ");
@@ -103,7 +103,7 @@ public class MainApp {
         }
     }
 
-    public static void adding() {
+    private static void adding() {
         boolean valid = true;
         Scanner input = new Scanner(System.in);
         while (valid) {
